@@ -1,0 +1,39 @@
+.fc-wrapper {
+  margin: 1rem;
+}
+
+.notification-icon {
+  cursor: pointer;
+  display: flex;
+  border-right: 1px solid lightgray;
+  align-items: center;
+  padding-right: 1rem;
+  gap: 5px;
+
+  svg {
+    color: white;
+  }
+}
+@media (max-width: 993px) {
+  .modal-footer {
+    .btn {
+      width: 100%;
+    }
+  }
+
+  .notification-icon {
+    display: none;
+  }
+  .event-list {
+    display: none;
+  }
+  .nav-user-info-content {
+    width: 0rem;
+  }
+  .nav-user-info-content-label {
+    display: none;
+  }
+  div.nav-user-info-content {
+    width: 3rem;
+  }
+}

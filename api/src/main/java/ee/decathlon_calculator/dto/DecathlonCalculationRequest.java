@@ -6,8 +6,7 @@ import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
-@Getter
-@Setter
+@Data
 @RequiredArgsConstructor
 public class DecathlonCalculationRequest {
 

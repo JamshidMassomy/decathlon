@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": false,
+    "jsx": "react-jsx",
+    "noImplicitAny": false
+  },
+  "include": [
+    "src",
+    "src/components/button/button.spec.tsx",
+    "__tests__/unit/__tests__",
+    "__tests__/index.spec.tsx",
+    "src/components/input/input.spec.tsx",
+    "__tests__/page.spec.tsx"
+  ],
+  "exclude": ["./plugins/**/*", "./typings/**/*", "./built/**/*"]
+}

@@ -3,4 +3,4 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
-rootProject.name = 'decathlon_calculator'
+rootProject.name = 'api'
