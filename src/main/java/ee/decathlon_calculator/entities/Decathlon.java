@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class Decathlon {
     private final Sport sport;
-    private final float result;
+    private final float point;
     private final boolean isCalculated;
 }
+// multiple sport
+// points
