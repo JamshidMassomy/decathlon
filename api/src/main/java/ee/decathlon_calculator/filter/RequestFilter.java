@@ -6,7 +6,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.util.UUID;
+
 import static ee.decathlon_calculator.utils.Constants.SESSION_ID_HEADER;
+
 @Component
 @Slf4j
 public class RequestFilter implements Filter {

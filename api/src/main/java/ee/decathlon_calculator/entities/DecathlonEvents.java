@@ -11,6 +11,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "decathlon_events")
 public class DecathlonEvents {
 
     @Id
@@ -18,13 +19,19 @@ public class DecathlonEvents {
     private Long id;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "event_type")
     private EventType eventType;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "sport")
     private Sport sport;
 
+    @Column(name = "coefficient_a")
     private BigDecimal coefficientA;
-    private BigDecimal coefficientB;
-    private BigDecimal coefficientC;
 
+    @Column(name = "coefficient_b")
+    private BigDecimal coefficientB;
+
+    @Column(name = "coefficient_c")
+    private BigDecimal coefficientC;
 }

@@ -5,23 +5,23 @@
                                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
     <changeSet id="1" author="jamshid">
         <sql>
-            CREATE TABLE IF NOT EXISTS DecathlonEvents (
+            CREATE TABLE IF NOT EXISTS decathlon_events (
                  id BIGINT PRIMARY KEY AUTO_INCREMENT,
-                 eventType VARCHAR(255) NOT NULL,
-                 sport VARCHAR(255) NOT NULL,
-                 coefficientA NUMERIC(10, 6) NOT NULL,
-                 coefficientB NUMERIC(10, 6) NOT NULL,
-                 coefficientC NUMERIC(10, 6) NOT NULL
+                 eventType VARCHAR(100) NOT NULL,
+                 sport VARCHAR(100) NOT NULL,
+                 coefficient_a NUMERIC(10, 4) NOT NULL,
+                 coefficient_b NUMERIC(10, 2) NOT NULL,
+                 coefficient_c NUMERIC(10, 2) NOT NULL
             );
-            INSERT INTO DecathlonEvents (eventType, sport, coefficientA, coefficientB, coefficientC)
+            INSERT INTO decathlon_events (eventType, sport, coefficient_a, coefficient_b, coefficient_c)
             VALUES
-            ('FIELD', 'LONG_JUMP', 0.14354, 220, 1.4),
-            ('FIELD', 'HIGH_JUMP', 0.8465, 75, 1.42),
-            ('FIELD', 'DISCUS_THROW', 12.91, 4, 1.1),
-            ('FIELD', 'POLE_VAULT', 0.2797, 100, 1.35),
-            ('FIELD', 'JAVELIN_THROW', 10.14, 7, 1.08),
-            ('TRACK', 'ONE_HUNDRED_METER', 25.4347, 18, 1.81),
-            ('TRACK', 'FOUR_HUNDRED_METER', 5.74352, 28.5, 1.92);
+            ('FIELD_EVENT', 'LONG_JUMP', 0.14354, 220, 1.4),
+            ('FIELD_EVENT', 'HIGH_JUMP', 0.8465, 75, 1.42),
+            ('FIELD_EVENT', 'DISCUS_THROW', 12.91, 4, 1.1),
+            ('FIELD_EVENT', 'POLE_VAULT', 0.2797, 100, 1.35),
+            ('FIELD_EVENT', 'JAVELIN_THROW', 10.14, 7, 1.08),
+            ('TRACK_EVENT', 'ONE_HUNDRED_METER', 25.4347, 18, 1.81),
+            ('TRACK_EVENT', 'FOUR_HUNDRED_METER', 5.74352, 28.5, 1.92);
         </sql>
     </changeSet>
 </databaseChangeLog>
