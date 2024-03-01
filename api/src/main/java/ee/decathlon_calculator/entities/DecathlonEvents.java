@@ -1,7 +1,6 @@
 package ee.decathlon_calculator.entities;
 
 import jakarta.persistence.*;
-import java.math.BigDecimal;
 import lombok.*;
 
 @Builder
@@ -26,12 +25,16 @@ public class DecathlonEvents {
     @Column(name = "sport")
     private Sport sport;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "unit_of_measure")
+    private UnitOfMeasure unitOfMeasure;
+
     @Column(name = "coefficient_a")
-    private BigDecimal coefficientA;
+    private Double coefficientA;
 
     @Column(name = "coefficient_b")
-    private BigDecimal coefficientB;
+    private Double coefficientB;
 
     @Column(name = "coefficient_c")
-    private BigDecimal coefficientC;
+    private Double coefficientC;
 }

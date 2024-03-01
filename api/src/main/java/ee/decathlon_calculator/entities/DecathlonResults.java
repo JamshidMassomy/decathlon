@@ -17,10 +17,6 @@ public class DecathlonResults {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "unit_of_measure")
-    private UnitOfMeasure unitOfMeasure;
-
     @Column(name = "point")
     private BigDecimal point;
 }
