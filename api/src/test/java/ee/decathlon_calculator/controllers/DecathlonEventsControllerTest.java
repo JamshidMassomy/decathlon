@@ -1,9 +1,6 @@
 package ee.decathlon_calculator.controllers;
 
-import ee.decathlon_calculator.entities.DecathlonEvents;
-import ee.decathlon_calculator.entities.EventType;
 import ee.decathlon_calculator.entities.Sport;
-import ee.decathlon_calculator.services.CalculationService;
 import ee.decathlon_calculator.services.DecathlonService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -28,9 +25,6 @@ class DecathlonEventsControllerTest {
 
     @MockBean
     private DecathlonService decathlonService;
-
-    @MockBean
-    private CalculationService calculationService;
 
     @Autowired
     private MockMvc mvc;
@@ -66,24 +60,12 @@ class DecathlonEventsControllerTest {
     void test_should_return_correct_calculations() throws Exception {
         Sport aLongJump = Sport.LONG_JUMP;
         Double aResult = 7.76;
-        String expectedResponseBody =
-                """
-                { result: 1000 }
-                """;
-        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders
+        mvc.perform(MockMvcRequestBuilders
                         .get("/api/v1/calculate-points")
                         .param("sport", String.valueOf(aLongJump))
                         .param("result", String.valueOf(aResult)))
                 .andExpect(status().isOk())
                 .andReturn();
-        String actualResponseBody =
-                mvcResult.getResponse().getContentAsString();
-        DecathlonEvents aFieldEvent = DecathlonEvents.builder()
-                .eventType(EventType.JUMP_EVENT)
-                .build();
-
-        // assertThat(actualResponseBody).isSameAs(expectedResponseBody);
-        // verify(calculationService, times(1)).calculateFieldEvent(aFieldEvent, BigDecimal.valueOf(7.76));
         verify(decathlonService, times(1)).getPointCalculation(aLongJump, aResult);
     }
 }

@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api
+    depends_on:
+      - postgres-db
+    ports:
+      - '8282:8181'
+    volumes:
+      - ./db/changelog:/db/changelog
+
+volumes:
+  db-postgres-data:

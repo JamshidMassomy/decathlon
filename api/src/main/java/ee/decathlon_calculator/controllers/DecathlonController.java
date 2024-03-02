@@ -11,6 +11,7 @@ import jdk.jfr.Description;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,9 +34,29 @@ public final class DecathlonController extends BaseController {
             @ApiResponse(responseCode = "500", description = "Server error or server not available"),
             @ApiResponse(responseCode = "404", description = "Wrong path or not found")
     })
+    @CrossOrigin
     public ResponseEntity<DecathlonCalculationResponse> getCalculation(
            @Valid @RequestParam Sport sport,
            @Valid @RequestParam Double result) {
         return ResponseEntity.ok(decathlonService.getPointCalculation(sport, result));
+    }
+
+    @GetMapping(
+            path = "sports",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    @Description("Api for fetching of sport")
+    @Operation(
+            summary = "GET calculation result",
+            description = "GET decathlon calculation result")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Fetches result successfully"),
+            @ApiResponse(responseCode = "400", description = "Bad request or failed to fetch calculations"),
+            @ApiResponse(responseCode = "500", description = "Server error or server not available"),
+            @ApiResponse(responseCode = "404", description = "Wrong path or not found")
+    })
+    @CrossOrigin
+    public ResponseEntity<Sport[]> fetchEventTypes() {
+        return ResponseEntity.ok(Sport.values());
     }
 }
