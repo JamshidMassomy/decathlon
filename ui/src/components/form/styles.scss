@@ -1,6 +1,4 @@
 .form-content {
-  margin: auto;
-  max-width: 50%;
   box-shadow: 1px 1px 1px 1px lightgray;
   padding: 1rem;
 
@@ -8,5 +6,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .form-btn {
+    display: flex;
+    button {
+      margin: 0.5rem;
+    }
   }
 }

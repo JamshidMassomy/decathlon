@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Select } from '../select';
 import { Input } from '../input';
 import './styles.scss';
@@ -8,7 +8,7 @@ import { fetchCalculations } from '../../store/action/calculationAction';
 import { fetchSportTypes } from '../../store/action/sportActions';
 import toast from 'react-hot-toast';
 
-const Form = ({ fetchCalculations, fetchSports, sports, point }) => {
+const Form = ({ fetchCalculations, fetchSports, sports, calculation }) => {
   useEffect(() => {
     fetchSports();
   }, []);
@@ -18,11 +18,10 @@ const Form = ({ fetchCalculations, fetchSports, sports, point }) => {
     result: null,
   });
 
-  const onSubmit = async () => {
-    await fetchCalculations(request);
-    console.log('point', point);
-    toast('Here is your toast.' + point);
-    setRequest(null);
+  const onSubmit = () => {
+    fetchCalculations(request);
+    // a new component like result
+    // toast('Calculated Point is ' + calculation?.point);
   };
 
   const onInputChange = (event) => {
@@ -34,22 +33,29 @@ const Form = ({ fetchCalculations, fetchSports, sports, point }) => {
   };
 
   return (
-    <div className="bg-white p-10 rounded-lg shadow md:w-3/4 mx-auto lg:w-1/2 form-content">
+    <div className="bg-white p-10 rounded-lg shadow mx-auto form-content">
       <form action="" className="form-body">
-        <Select onChange={onInputChange} name="sport" dataset={sports} />
+        <Select
+          value={request.sport}
+          onChange={onInputChange}
+          name="sport"
+          dataset={sports}
+        />
         <Input
           name="result"
           value={request?.result}
-          label="result"
+          label="Result"
           onChange={onInputChange}
         />
-        <Button label="Submit" onClick={() => onSubmit()} type="primary" />
+        <div className="form-btn">
+          <Button label="Submit" onClick={() => onSubmit()} type="primary" />
+        </div>
       </form>
     </div>
   );
 };
 const mapStateToProps = (state) => ({
-  point: state.calculation.point,
+  calculation: state.calculation.point,
   sports: state.sports.data,
 });
 

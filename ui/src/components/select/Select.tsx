@@ -1,10 +1,9 @@
-import React, { memo, useEffect, useState } from 'react';
+import React, { memo, useEffect, useRef, useState } from 'react';
 
 export interface ISelect {
   dataset: any[];
   name?: string;
-  label?: string;
-  hasPlusBtn?: boolean;
+  value: string | any;
   onChange?: (value: any) => void;
 }
 
@@ -30,13 +29,12 @@ const Select: React.FC<ISelect> = memo((props: ISelect) => {
       <select
         onChange={onChange}
         name={name || ''}
-        required
-        className="form-control bg-white px-3 
-      py-2 transition-all cursor-pointer 
-      hover:border-blue-600/30
-      border border-gray-200 rounded-lg outline-blue-600/50 appearance-none  w-64"
+        className="form-control bg-white px-3
+        py-2 transition-all cursor-pointer
+        hover:border-blue-600/30
+        border border-gray-200 rounded-lg outline-blue-600/50 appearance-none  w-64"
       >
-        <option>Select</option>
+        <option>----------------</option>
         {selectionOptions()}
       </select>
     </div>

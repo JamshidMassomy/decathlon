@@ -3,7 +3,7 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: Roboto;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 code {
@@ -14,45 +14,13 @@ ol,
 ul {
   list-style: none;
 }
-
-/*
-  Full calender styles override
-*/
-button.fc-prev-button.fc-button.fc-button-primary,
-button.fc-next-button.fc-button.fc-button-primary {
-  margin-right: 0.5rem !important;
-  color: rgb(247, 160, 131) !important;
-  background-color: rgb(240, 228, 228);
-}
-
-.fc .fc-button-primary {
-  border-color: transparent;
-}
-
-.logo img {
-  width: 140px;
+.nav-header {
+  color: white;
+  background-color: #818cf8;
 }
 
 .nav-content {
-  margin: 0 0.5rem;
+  margin: 0.2rem 0.5rem;
   align-items: center;
-  justify-content: space-between;
-}
-
-.nav-user-info {
-  display: flex;
-}
-
-.nav-user-info-content {
-  display: flex;
-  align-items: center;
-}
-
-.nav-user-info-content-label {
-  margin-right: 10px;
-}
-
-.nav-user-info-content img {
-  height: auto;
-  width: 51px;
+  justify-content: center;
 }

@@ -1,15 +1,11 @@
-import { mdiBell, mdiBullhorn, mdiCalendarBadge } from '@mdi/js';
-import Icon from '@mdi/react';
 import React, { memo } from 'react';
 
 const Header = () => {
   return (
-    <header className="App-header">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <header className="nav-header">
+      <nav className="navbar navbar-light bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400 shadow-sm">
         <div className="nav-content d-flex w-100">
-          <div className="logo">
-            <h4>Decathlon Calculator UI</h4>
-          </div>
+          <h4>Decathlon Calculator</h4>
         </div>
       </nav>
     </header>
