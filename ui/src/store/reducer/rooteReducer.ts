@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import calculationsReducer from './calculations_reducer';
+import sportReducer from './sportReducer';
+import calculationsReducer from './calculationsReducer';
 
 const rootReducer = combineReducers({
-  results: calculationsReducer,
+  sports: sportReducer,
+  calculation: calculationsReducer,
 });
 
 export default rootReducer;

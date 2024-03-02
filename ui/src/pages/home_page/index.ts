@@ -1,4 +1,4 @@
-import CalendarPage from './home';
+import HomePage from './home';
 
-export { CalendarPage };
+export { HomePage as CalendarPage };
 export { homeRoutes } from './route';

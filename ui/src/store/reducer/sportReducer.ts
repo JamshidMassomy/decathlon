@@ -1,22 +1,20 @@
 import { ACTION } from '../../util/constants';
 import initialState from '../initialstate';
 
-export default function calculationsReducer(state = initialState, action: any) {
+export default function sportReducer(state = initialState, action: any) {
   switch (action.type) {
-    case ACTION.FETCH_CALCULATIONS:
+    case ACTION.FETCH_SPORT:
       return {
         ...state,
-        events: action.payload,
+        data: action.payload,
       };
 
-    case ACTION.FETCH_CALCULATIONS:
+    case ACTION.FETCH_FAIL_SPORT:
       return {
         ...state,
-        events: [],
+        data: [],
         error: action.payload,
-        isDialogActive: false,
       };
-
     default:
       return state;
   }

@@ -6,29 +6,16 @@ import { Toaster } from 'react-hot-toast';
 
 // styles
 import './styles.scss';
-import { connect } from 'react-redux';
-import { fetchCalculations } from '../../store/action/calculation_action';
+import { Form } from '../../components/form';
 
-const CalendarPage = ({ fetchCalculations }): ReactElement => {
-  useEffect(() => {
-    fetchCalculations();
-  }, []);
-
+const HomePage = (): ReactElement => {
   return (
     <>
       <Toaster position="top-right" />
       <div className="fc-wrapper">
-        <h1>Calendar page</h1>
+        <Form />
       </div>
     </>
   );
 };
-const mapStateToProps = (state) => ({
-  eventData: state.events,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  fetchCalculations: () => dispatch(fetchCalculations()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(CalendarPage);
+export default HomePage;

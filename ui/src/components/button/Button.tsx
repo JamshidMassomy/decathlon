@@ -1,6 +1,11 @@
 import classNames from 'classnames';
 import { memo } from 'react';
-import { IButton } from '../../type';
+
+export interface IButton {
+  onClick: () => any;
+  label: string;
+  type: 'primary' | 'danger' | 'light';
+}
 
 const Button: React.FC<IButton> = memo((props: IButton) => {
   const { label, onClick, type } = props;
