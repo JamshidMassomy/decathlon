@@ -7,9 +7,12 @@ export const fetchCalculations =
     eventApi
       .fetchCalculations(result, sport)
       .then((data) => {
-        dispatch({ type: ACTION.FETCH_CALCULATIONS, payload: data });
+        dispatch({
+          type: ACTION.FETCH_CALCULATIONS,
+          payload: { data, sport },
+        });
       })
       .catch((error) => {
-        dispatch({ type: ACTION.FETCH_CALCULATIONS, payload: error });
+        dispatch({ type: ACTION.FETCH_FAIL_CALCULATIONS, payload: error });
       });
   };

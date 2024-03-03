@@ -1,14 +1,22 @@
-import React, { useEffect, useRef, useState } from 'react';
+// react
+import React, { useEffect, useState } from 'react';
+
+// components
 import { Select } from '../select';
 import { Input } from '../input';
-import './styles.scss';
 import { Button } from '../button';
+import toast from 'react-hot-toast';
+
+// redux
 import { connect } from 'react-redux';
 import { fetchCalculations } from '../../store/action/calculationAction';
 import { fetchSportTypes } from '../../store/action/sportActions';
-import toast from 'react-hot-toast';
 
-const Form = ({ fetchCalculations, fetchSports, sports, calculation }) => {
+// styles
+import './styles.scss';
+import { isValidSport } from '../../types/Sport';
+
+const Form = ({ fetchCalculations, fetchSports, sports }) => {
   useEffect(() => {
     fetchSports();
   }, []);
@@ -19,9 +27,13 @@ const Form = ({ fetchCalculations, fetchSports, sports, calculation }) => {
   });
 
   const onSubmit = () => {
-    fetchCalculations(request);
-    // a new component like result
-    // toast('Calculated Point is ' + calculation?.point);
+    if (isFormValid()) {
+      fetchCalculations(request);
+    } else {
+      toast.error(
+        'One or more validations is missing. Fill out all required fields'
+      );
+    }
   };
 
   const onInputChange = (event) => {
@@ -30,6 +42,10 @@ const Form = ({ fetchCalculations, fetchSports, sports, calculation }) => {
       ...prevProps,
       [name]: value,
     }));
+  };
+
+  const isFormValid = () => {
+    return request.sport && request.result && isValidSport(request.sport);
   };
 
   return (
@@ -42,9 +58,11 @@ const Form = ({ fetchCalculations, fetchSports, sports, calculation }) => {
           dataset={sports}
         />
         <Input
+          type="number"
+          placeholder="result"
           name="result"
           value={request?.result}
-          label="Result"
+          label="Result*"
           onChange={onInputChange}
         />
         <div className="form-btn">
@@ -54,8 +72,7 @@ const Form = ({ fetchCalculations, fetchSports, sports, calculation }) => {
     </div>
   );
 };
-const mapStateToProps = (state) => ({
-  calculation: state.calculation.point,
+const mapStateToProps = (state: { sports: { data: any } }) => ({
   sports: state.sports.data,
 });
 

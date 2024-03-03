@@ -25,7 +25,7 @@ const Select: React.FC<ISelect> = memo((props: ISelect) => {
 
   return (
     <div className="form-group w-100 mb-2">
-      <label>Sport</label>
+      <label>Sport*</label>
       <select
         onChange={onChange}
         name={name || ''}

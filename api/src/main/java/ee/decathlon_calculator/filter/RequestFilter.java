@@ -20,7 +20,7 @@ public class RequestFilter implements Filter {
             sessionId = UUID.randomUUID().toString();
         }
         request.setAttribute(SESSION_ID_HEADER, sessionId);
-        log.info("request - {}", ((HttpServletRequest) request).getPathInfo());
+        log.info("Incoming request for sessionId - {}", sessionId);
         chain.doFilter(request, response);
     }
 }

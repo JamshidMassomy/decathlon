@@ -2,10 +2,10 @@
 
 ## UI setup
 
-- ### `npm install` if command is not run from previous step while setting up server
+- ### `npm install`
 - ### `npm start`
 
-## server url: http://localhost:8080/v1/ap1
+## server base url: http://localhost:8080/v1/ap1
 
 ## UI URL: http://localhost:3000/
 

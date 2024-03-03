@@ -11,7 +11,7 @@ public class CalculationService {
         double coefficientA = event.getCoefficientA();
         double coefficientB = event.getCoefficientB();
         double point = coefficientA * Math.pow((coefficientB - result), coefficientC);
-        return (int) Math.round(point);
+        return (int) point;
     }
 
     public int calculateJumpEvent(DecathlonEvents event, Double result) {
@@ -28,6 +28,6 @@ public class CalculationService {
         double coefficientA = event.getCoefficientA();
         double coefficientB = event.getCoefficientB();
         double point = coefficientA * Math.pow((result - coefficientB), coefficientC);
-        return (int) Math.round(point);
+        return (int) point;
     }
 }
